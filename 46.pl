@@ -4,12 +4,9 @@ s(Tree) --> (assignment(Tree); conditional(Tree)), eos.
 
 conditional(if_else(If, Else)) --> if_statement(If), ['else'], s(Else).
 conditional(if(If)) --> if_statement(If).
+conditional(while(While,Body)) --> ['while'], ['('], boolean(While), [')'], s(Body).
 
 if_statement((Expr, Body)) --> ['if'], ['('], boolean(Expr), [')'], s(Body).
-
-% statement(statement(Body)) --> ['{'], s(Body), ['}'].
-% statement(statement(Body)) --> s(Body).
-% statement(statement(Expr)) --> boolean(Expr), semi_colon.
 
 boolean(boolean(Left,Op,Right)) --> expr(Left), operator_Compare(Op),expr(Right).
 
