@@ -10,6 +10,7 @@ if_statement((Expr, Body)) --> ['if'], ['('], boolean(Expr), [')'], s(Body).
 
 boolean(boolean(Left,Op,Right)) --> expr(Left), operator_Compare(Op),expr(Right).
 
+assignment(assign(Id, Expr,End)) --> identifier(Id), ['='], expr(Expr),semi_colon(End).
 assignment(assign(Id, Expr,End,Body)) --> identifier(Id), ['='], expr(Expr),semi_colon(End),s(Body).
 
 identifier(id(X)) -->
