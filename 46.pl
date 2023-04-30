@@ -1,5 +1,17 @@
 % Define grammar rules
-s(Tree) --> assignment(Tree), eos.
+s(Tree) --> (assignment(Tree); conditional(Tree)), eos.
+
+
+conditional(if_else(If, Else)) --> if_statement(If), ['else'], s(Else).
+conditional(if(If)) --> if_statement(If).
+
+if_statement((Expr, Body)) --> ['if'], ['('], boolean(Expr), [')'], s(Body).
+
+% statement(statement(Body)) --> ['{'], s(Body), ['}'].
+% statement(statement(Body)) --> s(Body).
+% statement(statement(Expr)) --> boolean(Expr), semi_colon.
+
+boolean(boolean(Left,Op,Right)) --> expr(Left), operator_Compare(Op),expr(Right).
 
 assignment(assign(Id, Expr,End)) --> identifier(Id), ['='], expr(Expr),semi_colon(End).
 
@@ -12,8 +24,6 @@ identifier_tail([Char|Tail]) -->
     [Char], { catch(code_type(Char, alnum), _, fail) ; Char = '_' },
     identifier_tail(Tail).
 identifier_tail([]) --> [].
-
-boolean(boolean(Left,Op,Right)) --> expr(Left), operator_Compare(Op),expr(Right).
 
 expr(expr(Term)) --> term(Term).
 expr(expr(Left, Op, Right)) --> term(Left), operator(Op), expr(Right).
