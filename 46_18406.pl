@@ -1,7 +1,6 @@
 % Define grammar rules
 s(Tree) --> (assignment(Tree); conditional(Tree)), eos.
 
-
 conditional(if_else(If, Else)) --> if_statement(If), ['else'], s(Else).
 conditional(if(If)) --> if_statement(If).
 conditional(while(While,Body)) --> ['while'], ['('], boolean(While), [')'], s(Body).
