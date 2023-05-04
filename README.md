@@ -38,3 +38,16 @@ The grammar rules of our programming language can be defined as follows:
 - `operator_Compare(greater)` represents a greater-than comparison operator.
 - `semi_colon(end)` represents a semicolon that terminates a statement.
 - `num(num(X))` represents a numeric literal. 
+
+
+## Prolog Parser Tests
+This repository contains tests for a Prolog parser implemented in the `test.pl` file.
+
+## Example Test
+To run the tests, use the following command:
+- Input:
+s(T, [if,'(','T',o,t,a,l,<,500,')','T',o,t,a,l,=,'T',o,t,a,l,+,150,;,else,if,'(',x,'!=','T',o,t,a,l,')','T',o,t,a,l,=,0,;,else,x,=,55,/,y,-,15,;] ,[]).
+
+- Output:
+T = if_else((boolean(expr(term(factor(id(['T', o|...])))), less, expr(term(factor(num(500))))), assign(id(['T', o, t, a, l]), expr(term(factor(id(['T', o|...])), add, term(factor(num(150))))), end)), if_else((boolean(expr(term(factor(id([x])))), inequality, expr(term(factor(id(['T'|...]))))), assign(id(['T', o, t, a|...]), expr(term(factor(num(0)))), end)), assign(id([x]), expr(term(factor(num(55)), div, term(factor(id([y])), sub, term(factor(num(15)))))), end))) .
+
