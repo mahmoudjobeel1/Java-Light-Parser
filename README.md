@@ -90,5 +90,6 @@ s(T, [if,'(','T',o,t,a,l,<,500,')','T',o,t,a,l,=,'T',o,t,a,l,+,150,;,else,if,'('
 ```
 
 - Output:
+```prolog
 T = if_else((boolean(expr(term(factor(id(['T', o|...])))), less, expr(term(factor(num(500))))), assign(id(['T', o, t, a, l]), expr(term(factor(id(['T', o|...])), add, term(factor(num(150))))), end)), if_else((boolean(expr(term(factor(id([x])))), inequality, expr(term(factor(id(['T'|...]))))), assign(id(['T', o, t, a|...]), expr(term(factor(num(0)))), end)), assign(id([x]), expr(term(factor(num(55)), div, term(factor(id([y])), sub, term(factor(num(15)))))), end))) .
-
+```
