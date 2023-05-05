@@ -1,4 +1,4 @@
-# Definite Clause Grammar Parser for Java-Light in Prolog
+# Java-Light-Parser in Prolog
 
 This project implements a parser for a definite clause grammar (DCG) of Java-Light in Prolog. Java-Light is a subset of Java that consists of semi-colon-separated sequences of simple assignment statements, conditional statements, and loops. The grammar contains no epsilon rules and has the symbol `s` as its start variable.
 
@@ -44,7 +44,7 @@ while (counter <= w - 1)
 
 The parser takes a sequence of tokens as input and returns a parse tree that represents the input in terms of the grammar rules. The output is a Prolog term that can be further processed or queried for information.
 
-The parser is implemented in the `46_18406.pl` file, which contains the grammar rules and predicates for parsing different types of statements. The file also includes examples of how to use the parser with sample inputs.
+The parser is implemented in the `46_18406.pl` file, which contains the grammar rules and predicates for parsing different types of statements. 
 
 ## Grammar Rules
 
@@ -81,7 +81,7 @@ The grammar rules of our programming language can be defined as follows:
 
 
 ## Prolog Parser Tests
-This repository contains tests for a Prolog parser implemented in the `tests.pl` file.
+This repository contains tests for a Java parser implemented in the `tests.pl` file.
 
 ## Example Test
 - Input:
