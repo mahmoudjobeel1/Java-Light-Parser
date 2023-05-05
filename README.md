@@ -41,10 +41,9 @@ The grammar rules of our programming language can be defined as follows:
 
 
 ## Prolog Parser Tests
-This repository contains tests for a Prolog parser implemented in the `test.pl` file.
+This repository contains tests for a Prolog parser implemented in the `tests.pl` file.
 
 ## Example Test
-To run the tests, use the following command:
 - Input:
 s(T, [if,'(','T',o,t,a,l,<,500,')','T',o,t,a,l,=,'T',o,t,a,l,+,150,;,else,if,'(',x,'!=','T',o,t,a,l,')','T',o,t,a,l,=,0,;,else,x,=,55,/,y,-,15,;] ,[]).
 
