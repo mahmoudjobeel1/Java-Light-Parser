@@ -2,6 +2,43 @@
 
 This project implements a parser for a definite clause grammar (DCG) of Java-Light in Prolog. Java-Light is a subset of Java that consists of semi-colon-separated sequences of simple assignment statements, conditional statements, and loops. The grammar contains no epsilon rules and has the symbol `s` as its start variable.
 
+## Assignment Statements
+
+The left side of the assignment is a Java identifier and the right side is an arithmetic expression involving only the binary operators +, -, *, /, and %. The expression can have parenthesized sub-expressions and its atomic sub-expressions are identifiers or unsigned int literals.
+
+For example, the following is acceptable:
+```java
+counter1 = counter1 + (x / y - 21) % _w2;
+
+whereas the following is not:
+```java
+counter1 = 1counter ++x / y - 21) % _w2
+
+
+## Conditional Statements
+
+Conditional statements are restricted to valid Java if and if-else statements, nested to any depth, and with bodies which are single statements. The conditions in these statements are simple relational expressions involving one of the operators ==, !=, <=, <, >=, and > flanked by arithmetic expressions (as restricted above).
+
+## Loops
+
+Loops are restricted to valid Java while loops, nested to any depth, with conditions as restricted above, and with bodies which are single statements.
+
+Thus, the following is valid in Java-Light. (Line breaks and tabs added for readability.)
+
+```java
+counter = x + y;
+while (counter <= w - 1)
+while (counter != y)
+counter = counter + x + 5;
+if (counter > w + 2)
+if (counter > x)
+counter = y;
+else
+if (counter > y)
+counter = x;
+w = y / x;
+
+
 The parser takes a sequence of tokens as input and returns a parse tree that represents the input in terms of the grammar rules. The output is a Prolog term that can be further processed or queried for information.
 
 The parser is implemented in the `46_18406.pl` file, which contains the grammar rules and predicates for parsing different types of statements. The file also includes examples of how to use the parser with sample inputs.
@@ -45,6 +82,7 @@ This repository contains tests for a Prolog parser implemented in the `tests.pl`
 
 ## Example Test
 - Input:
+```prolog
 s(T, [if,'(','T',o,t,a,l,<,500,')','T',o,t,a,l,=,'T',o,t,a,l,+,150,;,else,if,'(',x,'!=','T',o,t,a,l,')','T',o,t,a,l,=,0,;,else,x,=,55,/,y,-,15,;] ,[]).
 
 - Output:
